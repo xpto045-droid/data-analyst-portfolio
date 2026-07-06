@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL
 
 const copy = {
   en: {
-    nav: ['Value', 'Dashboards', 'Experience', 'Contact'],
+    nav: ['Value', 'Dashboards', 'Analysis', 'Experience', 'Contact'],
     heroEyebrow: 'Data Specialist, Business Intelligence, Reporting',
     heroTitle: 'Business dashboards, reporting automation and decision support.',
     heroText:
@@ -65,6 +65,18 @@ const copy = {
         deliverables: 'A clean Data Studio report with KPI scorecards, funnel tracking, performance tables, time series analysis and channel filters.'
       }
     },
+    analysisEyebrow: 'Decision support',
+    analysisTitle: 'Decision support beyond dashboards.',
+    analysisText:
+      'Dashboards are only one part of the work. I also prepare business reports that explain risk, compare scenarios and turn data into clear recommendations for decision makers.',
+    analysisCards: [
+      ['Decision reports', 'Structured reports with context, findings, recommendations and next steps for management or operational teams.'],
+      ['Risk and impact analysis', 'Assessment of business risk, operational exposure, financial impact and what could happen under different scenarios.'],
+      ['KPI diagnostics', 'Review of KPI logic, metric inconsistencies, data gaps and misleading indicators that can affect decisions.'],
+      ['Business cases', 'Comparison of options, expected impact, trade offs and practical recommendations before a decision is made.'],
+      ['Operational reviews', 'Analysis of bottlenecks, SLA issues, workload, exceptions and process inefficiencies.'],
+      ['Executive summaries', 'Clear one page summaries that explain what changed, why it matters and what should happen next.']
+    ],
     experienceEyebrow: 'Experience overview',
     experienceTitle: 'Over the last 5 years, I have worked across data, dashboards and reporting.',
     experienceText:
@@ -80,7 +92,7 @@ const copy = {
     ctaLinkedIn: 'LinkedIn'
   },
   pt: {
-    nav: ['Valor', 'Dashboards', 'Experiência', 'Contacto'],
+    nav: ['Valor', 'Dashboards', 'Análise', 'Experiência', 'Contacto'],
     heroEyebrow: 'Data Specialist, Business Intelligence, Reporting',
     heroTitle: 'Dashboards de negócio, automação de reporting e apoio à decisão.',
     heroText:
@@ -139,6 +151,18 @@ const copy = {
         deliverables: 'Um relatório Data Studio limpo, com scorecards, acompanhamento de funil, tabelas de performance, análise temporal e filtros por canal.'
       }
     },
+    analysisEyebrow: 'Apoio à decisão',
+    analysisTitle: 'Apoio à decisão além dos dashboards.',
+    analysisText:
+      'Dashboards são apenas uma parte do trabalho. Também preparo relatórios de negócio que explicam risco, comparam cenários e transformam dados em recomendações claras para decisores.',
+    analysisCards: [
+      ['Relatórios de decisão', 'Relatórios estruturados com contexto, conclusões, recomendações e próximos passos para gestão ou equipas operacionais.'],
+      ['Análise de risco e impacto', 'Avaliação de risco de negócio, exposição operacional, impacto financeiro e cenários possíveis.'],
+      ['Diagnóstico de KPIs', 'Revisão da lógica de KPIs, inconsistências de métricas, gaps de dados e indicadores que podem induzir decisões erradas.'],
+      ['Business cases', 'Comparação de opções, impacto esperado, trade offs e recomendações práticas antes da tomada de decisão.'],
+      ['Revisões operacionais', 'Análise de bottlenecks, problemas de SLA, workload, exceções e ineficiências de processo.'],
+      ['Sumários executivos', 'Resumos claros de uma página que explicam o que mudou, porque importa e o que deve acontecer a seguir.']
+    ],
     experienceEyebrow: 'Visão de experiência',
     experienceTitle: 'Nos últimos 5 anos, trabalhei em dados, dashboards e reporting.',
     experienceText:
@@ -187,7 +211,7 @@ function App() {
         <a className="brand" href="#top">Fernando Almeida</a>
         <nav className="nav-links">
           {t.nav.map((item, index) => (
-            <a key={item} href={['#value', '#dashboards', '#experience', '#contact'][index]}>{item}</a>
+            <a key={item} href={['#value', '#dashboards', '#analysis', '#experience', '#contact'][index]}>{item}</a>
           ))}
         </nav>
         <button className="lang-toggle" onClick={() => setLang(lang === 'en' ? 'pt' : 'en')}>
@@ -334,6 +358,32 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section-pad analysis-section" id="analysis">
+          <div className="analysis-layout">
+            <div className="section-heading narrow">
+              <p className="eyebrow">{t.analysisEyebrow}</p>
+              <h2>{t.analysisTitle}</h2>
+              <p>{t.analysisText}</p>
+            </div>
+            <div className="analysis-highlight card-surface">
+              <strong>{lang === 'en' ? 'What the client gains' : 'O que o cliente ganha'}</strong>
+              <p>{lang === 'en'
+                ? 'Clearer priorities, better risk visibility, less ambiguity before decisions and recommendations that are easier to act on.'
+                : 'Prioridades mais claras, melhor visibilidade sobre risco, menos ambiguidade antes da decisão e recomendações mais fáceis de executar.'}</p>
+            </div>
+          </div>
+
+          <div className="analysis-grid">
+            {t.analysisCards.map(([title, text], index) => (
+              <article className="analysis-card" key={title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
         </section>
 

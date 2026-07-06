@@ -1,30 +1,33 @@
-# Fernando Almeida, Premium BI Portfolio, v5 compact
+# Fernando Almeida, Premium BI Portfolio, v6
 
-Updated version focused on:
+This version adds a broader decision-support section so the portfolio is not only focused on dashboards.
 
-- smaller and more balanced visual scale
-- more compact hero section, profile card, cards and dashboards
-- clearer value proposition for companies
-- wording focused on what the business gains, cleaner reporting, faster decisions, less manual work and better KPI visibility
-- Power BI and Data Studio dashboard images included
-- experience section without job titles or dates
-- prebuilt `dist` folder included for GitHub Pages
+Included:
+
+- Power BI and Data Studio dashboard examples
+- compact premium layout
+- English and Portuguese switch
+- experience presented without employer names or dates
+- new section for decision reports, risk analysis, KPI diagnostics, business cases, operational reviews and executive summaries
+- prebuilt `dist` folder and simplified GitHub Pages workflow
 
 ## Profile photo
 
-Place the real profile photo here:
+Place your real photo in:
 
 `public/profile.jpg`
 
+If no photo is available, the site falls back to `public/profile-placeholder.svg`.
+
 ## Publish to GitHub
 
-The workflow publishes the prebuilt `dist` folder, so build first and force add `dist`:
+Because the workflow publishes the prebuilt `dist` folder, build first and then push:
 
 ```bash
 npm install
 npm run build
 git add .
 git add -f dist
-git commit -m "Improve compact premium portfolio"
+git commit -m "Add decision support section"
 git push
 ```

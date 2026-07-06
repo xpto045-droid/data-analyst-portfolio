@@ -1,0 +1,22 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="900" rx="72" fill="#07111F"/>
+  <circle cx="690" cy="170" r="300" fill="#86A9FF" fill-opacity="0.22"/>
+  <circle cx="205" cy="790" r="340" fill="#68F5C8" fill-opacity="0.20"/>
+  <path d="M0 0H900V900H0V0Z" fill="url(#grid)" fill-opacity="0.55"/>
+  <circle cx="450" cy="322" r="132" fill="url(#head)"/>
+  <path d="M195 755C224 608 329 515 450 515C571 515 676 608 705 755C713 796 681 832 639 832H261C219 832 187 796 195 755Z" fill="url(#body)"/>
+  <text x="450" y="858" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" fill="#EAF4FF" fill-opacity="0.86">replace with profile photo</text>
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" stroke="white" stroke-opacity="0.08"/>
+    </pattern>
+    <linearGradient id="head" x1="318" y1="190" x2="582" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68F5C8"/>
+      <stop offset="1" stop-color="#86A9FF"/>
+    </linearGradient>
+    <linearGradient id="body" x1="194" y1="515" x2="705" y2="832" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68F5C8"/>
+      <stop offset="1" stop-color="#86A9FF"/>
+    </linearGradient>
+  </defs>
+</svg>

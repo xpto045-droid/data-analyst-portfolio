@@ -1,282 +1,234 @@
 import React, { useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { EMBED_URLS } from './reportEmbeds.js'
 import './styles.css'
 
 const base = import.meta.env.BASE_URL
 
 const copy = {
   en: {
-    nav: ['Value', 'Dashboards', 'Services', 'Experience', 'Contact'],
-    heroEyebrow: 'Data Analyst & Business Intelligence Portfolio',
-    heroTitle: 'I turn business data into decisions, dashboards and measurable action.',
+    nav: ['Value', 'Dashboards', 'Experience', 'Contact'],
+    heroEyebrow: 'Data Specialist · Business Intelligence · Reporting',
+    heroTitle: 'I build decision-ready dashboards, reporting systems and business insight.',
     heroText:
-      'Data analyst based in Lisbon, combining SQL, Power BI, Looker Studio, BigQuery, Excel, Python and business context to help teams understand performance, reduce manual reporting and make better decisions across finance, operations, sales, CRM and management.',
-    ctaDashboard: 'View dashboard examples',
+      'Business-facing data specialist based in Lisbon, with experience translating complex datasets into executive dashboards, automated reporting and clear recommendations. I work across Power BI, Data Studio, SQL, BigQuery, Excel and Python to support finance, operations, commercial teams and management reporting.',
+    ctaDashboards: 'See dashboard examples',
     ctaCV: 'Download CV',
-    profileTitle: 'Fernando Almeida',
-    profileRole: 'Data Analyst · BI Specialist',
-    profileNote: 'Available for analytics, BI and reporting opportunities in Portugal or remote.',
+    profileName: 'Fernando Almeida',
+    profileRole: 'Data Specialist · BI Specialist',
+    profileDescription:
+      'I focus on helping companies turn fragmented information into a reliable decision system: structured data, relevant KPIs, premium dashboards and practical insight. My work is not limited to analytics alone — it includes reporting design, performance tracking, automation and business storytelling for leadership and operational teams.',
+    badges: ['Power BI', 'Data Studio', 'SQL', 'BigQuery', 'Excel', 'Python'],
     stats: [
-      ['5+ yrs', 'data & performance analysis'],
-      ['Power BI', 'executive dashboards'],
-      ['SQL / BigQuery', 'data modelling & automation']
+      ['5+ yrs', 'experience across analytics, BI and business reporting'],
+      ['Power BI & Data Studio', 'executive dashboards for management and business teams'],
+      ['SQL / BigQuery / Automation', 'data extraction, modelling and process improvement']
     ],
-    valueTitle: 'How I can help a company',
-    valueSubtitle:
-      'The goal is not only to build dashboards. The goal is to create a reliable decision system: clean data, relevant KPIs, clear visuals and actions that managers can use.',
+    valueEyebrow: 'How I help companies',
+    valueTitle: 'A portfolio built for business value, not just visuals.',
+    valueText:
+      'The goal is to give decision-makers a clearer operating picture: what is happening, why it is happening, what should be prioritised and where action is needed.',
     valueCards: [
-      ['Executive reporting', 'Build management dashboards that show revenue, cost, margin, targets, gaps and risks in one place.'],
-      ['Finance & profitability', 'Transform financial and operational data into margin, budget, forecast, variance and profitability views.'],
-      ['Sales & commercial performance', 'Track pipeline, conversion, lead quality, campaign performance, dealer/store/team performance and growth opportunities.'],
-      ['Operations & SLA control', 'Monitor workload, response time, backlog, service level, productivity and bottlenecks.'],
-      ['Data automation', 'Replace manual Excel work with SQL, Power Query, BigQuery, Python and automated refresh flows.'],
-      ['Decision-ready storytelling', 'Turn raw numbers into board-ready analysis, recommendations and next steps.']
+      ['Executive dashboards', 'Premium KPI dashboards for management, with clear hierarchy, business context, target tracking and actionable insight.'],
+      ['Finance reporting', 'Margin, budget, forecast, cost and profitability views that help leadership understand performance and control risk.'],
+      ['Operations control', 'SLA, workload, backlog, productivity and exception monitoring for teams that need daily operational visibility.'],
+      ['Commercial performance', 'Pipeline, lead quality, channel performance, conversion and growth dashboards for sales and marketing teams.'],
+      ['Data automation', 'Less manual Excel work through structured SQL, scheduled refreshes, calculated logic and repeatable reporting flows.'],
+      ['Business storytelling', 'Not only charts: concise analysis, interpretation and recommendations that help teams decide what to do next.']
     ],
-    dashboardsTitle: 'Power BI & Looker Studio dashboard examples',
-    dashboardsSubtitle:
-      'Below are portfolio-style dashboard concepts designed to look and behave like real BI deliverables. When real Power BI or Looker Studio links are available, the same section can display live embedded reports.',
-    dashboardTabs: ['All', 'Power BI', 'Looker Studio'],
-    period: 'Period',
-    pages: 'Report pages',
-    businessUse: 'Business use',
-    dataSources: 'Possible data sources',
-    decisions: 'Decisions supported',
-    deliverable: 'Deliverable',
-    embedReady: 'Ready for live embed',
-    embedNote: 'Paste a Power BI or Looker Studio embed URL in src/reportEmbeds.js and this preview becomes a live report frame.',
-    servicesTitle: 'What a company receives',
-    services: [
-      ['BI dashboard', 'Power BI or Looker Studio report with clear KPI logic, filters, pages and visual hierarchy.'],
-      ['Data model', 'Clean datasets, measures, calculated fields, relationships and documentation.'],
-      ['Automation', 'Reduced manual work through scheduled refreshes, SQL queries, Power Query or Python scripts.'],
-      ['Insight pack', 'Explanation of what changed, why it changed and what the business should do next.']
+    dashboardsEyebrow: 'Power BI · Data Studio',
+    dashboardsTitle: 'Power BI & Data Studio dashboard examples',
+    dashboardsText:
+      'Below are premium portfolio examples designed to look like real business dashboards. Each example shows the type of reporting a company can expect: executive visibility, KPI control, operational tracking and clear decision support.',
+    tabs: ['All', 'Power BI', 'Data Studio'],
+    detailsTitle: 'What this dashboard is for',
+    pagesLabel: 'Typical report pages',
+    sourcesLabel: 'Possible data sources',
+    decisionsLabel: 'Decisions it supports',
+    deliverablesLabel: 'What I would deliver',
+    dashboards: {
+      powerbiExecutive: {
+        tool: 'Power BI',
+        title: 'Executive Performance Dashboard',
+        image: `${base}dashboards/powerbi-executive.png`,
+        pages: ['Overview', 'Revenue', 'Margin', 'Variance', 'Risks'],
+        sources: 'ERP, finance exports, CRM, operational files, SQL datasets and budget data.',
+        decisions: 'Helps leadership track revenue, margin, target gaps, risk areas and where intervention is needed first.',
+        deliverables: 'A multi-page Power BI report with management KPIs, drill-downs, slicers, trend analysis and commentary-ready views.'
+      },
+      powerbiFinance: {
+        tool: 'Power BI',
+        title: 'Finance & Profitability Dashboard',
+        image: `${base}dashboards/powerbi-finance.png`,
+        pages: ['P&L', 'Budget vs Actual', 'Cost Drivers', 'Profitability', 'Trend'],
+        sources: 'Accounting files, ERP, cost centre data, Excel budgets, SQL tables and monthly actuals.',
+        decisions: 'Supports margin analysis, budget control, profitability review and identification of cost lines that need attention.',
+        deliverables: 'A finance-focused Power BI dashboard with P&L structure, variance logic, profitability cuts and leadership summary pages.'
+      },
+      dataStudioDigital: {
+        tool: 'Data Studio',
+        title: 'Digital & Lead Performance Dashboard',
+        image: `${base}dashboards/datastudio-digital.png`,
+        pages: ['Acquisition', 'Leads', 'Conversion', 'Campaigns', 'Channels'],
+        sources: 'Google Analytics, Search Console, Google Ads, spreadsheets and CRM / lead data.',
+        decisions: 'Shows which channels and campaigns generate quality leads, where conversion drops and how cost per lead evolves.',
+        deliverables: 'A Data Studio report with channel filters, scorecards, funnel analysis, campaign views and commercial performance context.'
+      },
+      dataStudioOperations: {
+        tool: 'Data Studio',
+        title: 'Operations & SLA Control Dashboard',
+        image: `${base}dashboards/datastudio-operations.png`,
+        pages: ['SLA', 'Backlog', 'Queues', 'Exceptions', 'Actions'],
+        sources: 'BigQuery, operational logs, ticketing exports, CRM extracts and Google Sheets.',
+        decisions: 'Helps teams prioritise queues, understand SLA breaches, reallocate workload and reduce operational bottlenecks.',
+        deliverables: 'A Data Studio operations report with live KPI monitoring, breakdowns by queue/team and recommended action views.'
+      }
+    },
+    experienceEyebrow: 'Experience snapshot',
+    experienceTitle: 'Experience presented as capability, not job titles.',
+    experienceText:
+      'Rather than listing roles one by one, this portfolio highlights the scope of work delivered over time: dashboard development, reporting, analysis and business support across different environments.',
+    experienceCards: [
+      ['2019 – 2021', 'Foundations in data and performance reporting', 'Built structured reporting habits, KPI tracking routines and analytical support for performance-focused environments.'],
+      ['2022 – 2024', 'Dashboard development and reporting automation', 'Expanded into BI tooling, data extraction, dashboard design and more consistent reporting workflows.'],
+      ['2024 – Present', 'Cross-functional business intelligence support', 'Delivering dashboards and analysis that can support finance, operations, commercial teams, CRM contexts and management reporting.']
     ],
-    experienceTitle: 'Experience across business contexts',
-    experience: [
-      ['Renault Group', 'Data Analyst', '2024 – Current', 'BI, reporting, data extraction, dashboards, KPIs and business analysis across internal teams.'],
-      ['Logical Jupiter', 'Data Analyst', '2024', 'Power BI dashboards, SQL Server, ETL processes, Microsoft Fabric and reporting automation.'],
-      ['CD Mafra / SL Benfica U-16', 'Performance Data Analyst', '2019 – 2024', 'Performance analysis, dashboards, scouting reports and decision support for coaching staff.']
-    ],
-    contactTitle: 'Let’s build a dashboard your managers actually use.',
-    contactText: 'Open to Data Analyst, BI Analyst, Reporting Analyst and Business Intelligence roles.',
-    footer: 'Designed as a premium BI portfolio for business-facing analytics roles.'
+    contactEyebrow: 'Contact',
+    contactTitle: 'Open to data, BI and reporting opportunities.',
+    contactText: 'Available for roles where business understanding, KPI design, reporting quality and dashboard usability matter.',
+    ctaLinkedIn: 'LinkedIn'
   },
   pt: {
-    nav: ['Valor', 'Dashboards', 'Serviços', 'Experiência', 'Contacto'],
-    heroEyebrow: 'Portfolio de Data Analyst & Business Intelligence',
-    heroTitle: 'Transformo dados de negócio em decisões, dashboards e ações mensuráveis.',
+    nav: ['Valor', 'Dashboards', 'Experiência', 'Contacto'],
+    heroEyebrow: 'Data Specialist · Business Intelligence · Reporting',
+    heroTitle: 'Construo dashboards, sistemas de reporting e insight orientado à decisão.',
     heroText:
-      'Data analyst em Lisboa, com SQL, Power BI, Looker Studio, BigQuery, Excel, Python e contexto de negócio para ajudar equipas a perceber performance, reduzir reporting manual e tomar melhores decisões em financeiro, operações, vendas, CRM e gestão.',
-    ctaDashboard: 'Ver exemplos de dashboards',
+      'Data specialist com foco de negócio, em Lisboa, com experiência a transformar dados complexos em dashboards executivos, reporting automatizado e recomendações claras. Trabalho com Power BI, Data Studio, SQL, BigQuery, Excel e Python para apoiar financeiro, operações, equipas comerciais e reporting de gestão.',
+    ctaDashboards: 'Ver exemplos de dashboards',
     ctaCV: 'Descarregar CV',
-    profileTitle: 'Fernando Almeida',
-    profileRole: 'Data Analyst · BI Specialist',
-    profileNote: 'Disponível para oportunidades de analytics, BI e reporting em Portugal ou remoto.',
+    profileName: 'Fernando Almeida',
+    profileRole: 'Data Specialist · BI Specialist',
+    profileDescription:
+      'O meu foco é ajudar empresas a transformar informação fragmentada num sistema de decisão fiável: dados estruturados, KPIs relevantes, dashboards premium e insight prático. O meu trabalho não se limita à análise — inclui desenho de reporting, acompanhamento de performance, automação e storytelling de negócio para gestão e equipas operacionais.',
+    badges: ['Power BI', 'Data Studio', 'SQL', 'BigQuery', 'Excel', 'Python'],
     stats: [
-      ['5+ anos', 'análise de dados e performance'],
-      ['Power BI', 'dashboards executivos'],
-      ['SQL / BigQuery', 'modelação e automação']
+      ['5+ anos', 'experiência em analytics, BI e reporting de negócio'],
+      ['Power BI & Data Studio', 'dashboards executivos para gestão e equipas de negócio'],
+      ['SQL / BigQuery / Automação', 'extração de dados, modelação e melhoria de processos']
     ],
-    valueTitle: 'Como posso ajudar uma empresa',
-    valueSubtitle:
-      'O objetivo não é só criar dashboards. O objetivo é criar um sistema de decisão fiável: dados limpos, KPIs relevantes, visuais claros e ações que a gestão consegue usar.',
+    valueEyebrow: 'Como ajudo empresas',
+    valueTitle: 'Um portfolio pensado para gerar valor de negócio, não apenas visuais.',
+    valueText:
+      'O objetivo é dar aos decisores uma visão operacional mais clara: o que está a acontecer, porque está a acontecer, o que deve ser priorizado e onde é preciso atuar.',
     valueCards: [
-      ['Reporting executivo', 'Dashboards de gestão com receita, custos, margem, objetivos, desvios e riscos num só lugar.'],
-      ['Financeiro e rentabilidade', 'Transformação de dados financeiros e operacionais em margem, orçamento, forecast, desvios e rentabilidade.'],
-      ['Performance comercial', 'Acompanhamento de pipeline, conversão, qualidade de leads, campanhas, performance por dealer/loja/equipa e oportunidades.'],
-      ['Operações e SLA', 'Monitorização de workload, tempo de resposta, backlog, níveis de serviço, produtividade e bottlenecks.'],
-      ['Automação de dados', 'Substituição de trabalho manual em Excel por SQL, Power Query, BigQuery, Python e refresh automático.'],
-      ['Storytelling de decisão', 'Transformação de números em análise, recomendações e próximos passos para a gestão.']
+      ['Dashboards executivos', 'Dashboards premium para gestão, com hierarquia clara, contexto de negócio, acompanhamento de objetivos e insight acionável.'],
+      ['Reporting financeiro', 'Visões de margem, orçamento, forecast, custos e rentabilidade para ajudar a liderança a perceber performance e controlar risco.'],
+      ['Controlo operacional', 'Monitorização de SLA, workload, backlog, produtividade e exceções para equipas que precisam de visibilidade diária.'],
+      ['Performance comercial', 'Dashboards de pipeline, qualidade de leads, canais, conversão e crescimento para equipas comerciais e marketing.'],
+      ['Automação de dados', 'Menos trabalho manual em Excel através de SQL estruturado, refreshes programados, lógica calculada e fluxos de reporting repetíveis.'],
+      ['Storytelling de negócio', 'Não apenas gráficos: análise concisa, interpretação e recomendações que ajudam as equipas a decidir os próximos passos.']
     ],
-    dashboardsTitle: 'Exemplos de dashboards Power BI & Looker Studio',
-    dashboardsSubtitle:
-      'Abaixo estão conceitos de dashboard com aspeto e comportamento de entregáveis reais de BI. Quando houver links reais de Power BI ou Looker Studio, esta secção pode mostrar relatórios embebidos ao vivo.',
-    dashboardTabs: ['Todos', 'Power BI', 'Looker Studio'],
-    period: 'Período',
-    pages: 'Páginas do relatório',
-    businessUse: 'Uso de negócio',
-    dataSources: 'Fontes de dados possíveis',
-    decisions: 'Decisões suportadas',
-    deliverable: 'Entregável',
-    embedReady: 'Pronto para embed real',
-    embedNote: 'Cola um URL de embed do Power BI ou Looker Studio em src/reportEmbeds.js e esta pré-visualização passa a ser um relatório real.',
-    servicesTitle: 'O que a empresa recebe',
-    services: [
-      ['Dashboard BI', 'Relatório em Power BI ou Looker Studio com lógica de KPIs, filtros, páginas e hierarquia visual.'],
-      ['Modelo de dados', 'Datasets limpos, measures, calculated fields, relações e documentação.'],
-      ['Automação', 'Menos trabalho manual com refreshes programados, queries SQL, Power Query ou scripts Python.'],
-      ['Pacote de insights', 'Explicação do que mudou, por que mudou e o que o negócio deve fazer a seguir.']
+    dashboardsEyebrow: 'Power BI · Data Studio',
+    dashboardsTitle: 'Exemplos de dashboards Power BI & Data Studio',
+    dashboardsText:
+      'Abaixo estão exemplos premium de portfolio desenhados para parecer dashboards reais de negócio. Cada exemplo mostra o tipo de reporting que uma empresa pode esperar: visibilidade executiva, controlo de KPI, monitorização operacional e apoio claro à decisão.',
+    tabs: ['Todos', 'Power BI', 'Data Studio'],
+    detailsTitle: 'Objetivo deste dashboard',
+    pagesLabel: 'Páginas típicas do relatório',
+    sourcesLabel: 'Fontes de dados possíveis',
+    decisionsLabel: 'Decisões que suporta',
+    deliverablesLabel: 'O que eu entregaria',
+    dashboards: {
+      powerbiExecutive: {
+        tool: 'Power BI',
+        title: 'Dashboard Executivo de Performance',
+        image: `${base}dashboards/powerbi-executive.png`,
+        pages: ['Visão geral', 'Receita', 'Margem', 'Desvios', 'Riscos'],
+        sources: 'ERP, exportações financeiras, CRM, ficheiros operacionais, datasets SQL e dados de orçamento.',
+        decisions: 'Ajuda a gestão a acompanhar receita, margem, desvios a objetivos, áreas de risco e onde é preciso intervir primeiro.',
+        deliverables: 'Um relatório Power BI multi-página com KPIs de gestão, drill-downs, slicers, análise de tendência e vistas prontas para comentário executivo.'
+      },
+      powerbiFinance: {
+        tool: 'Power BI',
+        title: 'Dashboard Financeiro & Rentabilidade',
+        image: `${base}dashboards/powerbi-finance.png`,
+        pages: ['P&L', 'Orçamento vs Real', 'Drivers de Custo', 'Rentabilidade', 'Tendência'],
+        sources: 'Ficheiros contabilísticos, ERP, dados de centros de custo, orçamentos em Excel, tabelas SQL e reais mensais.',
+        decisions: 'Suporta análise de margem, controlo orçamental, revisão de rentabilidade e identificação de rubricas de custo que exigem atenção.',
+        deliverables: 'Um dashboard Power BI financeiro com estrutura P&L, lógica de desvios, cortes de rentabilidade e páginas resumo para gestão.'
+      },
+      dataStudioDigital: {
+        tool: 'Data Studio',
+        title: 'Dashboard Digital & Performance de Leads',
+        image: `${base}dashboards/datastudio-digital.png`,
+        pages: ['Aquisição', 'Leads', 'Conversão', 'Campanhas', 'Canais'],
+        sources: 'Google Analytics, Search Console, Google Ads, folhas de cálculo e dados de CRM / leads.',
+        decisions: 'Mostra que canais e campanhas geram leads de qualidade, onde a conversão cai e como evolui o custo por lead.',
+        deliverables: 'Um relatório Data Studio com filtros por canal, scorecards, análise de funil, vistas de campanha e contexto comercial.'
+      },
+      dataStudioOperations: {
+        tool: 'Data Studio',
+        title: 'Dashboard Operacional & Controlo de SLA',
+        image: `${base}dashboards/datastudio-operations.png`,
+        pages: ['SLA', 'Backlog', 'Filas', 'Exceções', 'Ações'],
+        sources: 'BigQuery, logs operacionais, exportações de ticketing, extrações de CRM e Google Sheets.',
+        decisions: 'Ajuda equipas a priorizar filas, compreender breaches de SLA, redistribuir workload e reduzir bottlenecks operacionais.',
+        deliverables: 'Um relatório Data Studio operacional com monitorização de KPI, breakdowns por fila/equipa e vistas de ações recomendadas.'
+      }
+    },
+    experienceEyebrow: 'Resumo de experiência',
+    experienceTitle: 'Experiência apresentada como capacidade, não como lista de cargos.',
+    experienceText:
+      'Em vez de listar funções individualmente, este portfolio destaca o tipo de trabalho entregue ao longo do tempo: desenvolvimento de dashboards, reporting, análise e apoio ao negócio em diferentes contextos.',
+    experienceCards: [
+      ['2019 – 2021', 'Base em análise de dados e reporting de performance', 'Construção de hábitos de reporting estruturado, rotinas de acompanhamento de KPI e suporte analítico em ambientes orientados à performance.'],
+      ['2022 – 2024', 'Desenvolvimento de dashboards e automação de reporting', 'Expansão para ferramentas de BI, extração de dados, desenho de dashboards e workflows de reporting mais consistentes.'],
+      ['2024 – Atual', 'Suporte transversal de business intelligence', 'Entrega de dashboards e análise capazes de apoiar financeiro, operações, equipas comerciais, contextos de CRM e reporting de gestão.']
     ],
-    experienceTitle: 'Experiência em vários contextos de negócio',
-    experience: [
-      ['Renault Group', 'Data Analyst', '2024 – Atual', 'BI, reporting, extração de dados, dashboards, KPIs e análise de negócio com equipas internas.'],
-      ['Logical Jupiter', 'Data Analyst', '2024', 'Dashboards Power BI, SQL Server, ETL, Microsoft Fabric e automação de reporting.'],
-      ['CD Mafra / SL Benfica U-16', 'Performance Data Analyst', '2019 – 2024', 'Análise de performance, dashboards, relatórios de scouting e apoio à decisão técnica.']
-    ],
-    contactTitle: 'Vamos construir um dashboard que a gestão realmente usa.',
-    contactText: 'Disponível para funções de Data Analyst, BI Analyst, Reporting Analyst e Business Intelligence.',
-    footer: 'Desenhado como portfolio premium de BI para funções de analytics com foco no negócio.'
+    contactEyebrow: 'Contacto',
+    contactTitle: 'Disponível para oportunidades em dados, BI e reporting.',
+    contactText: 'Aberto a funções onde a compreensão do negócio, o desenho de KPI, a qualidade do reporting e a utilidade dos dashboards sejam realmente importantes.',
+    ctaLinkedIn: 'LinkedIn'
   }
 }
 
-const reports = [
-  {
-    id: 'powerbiExecutive',
-    tool: 'Power BI',
-    title: 'Executive Performance Cockpit',
-    ptTitle: 'Cockpit Executivo de Performance',
-    accent: '#F2C811',
-    pages: ['Overview', 'Revenue', 'Margin', 'Risks'],
-    ptPages: ['Visão geral', 'Receita', 'Margem', 'Riscos'],
-    kpis: [
-      ['Revenue', '€12.8M', '+8.4%'],
-      ['EBITDA margin', '18.7%', '+1.9 pp'],
-      ['Target gap', '€420K', 'at risk'],
-      ['Forecast accuracy', '94.2%', '+3.1 pp']
-    ],
-    ptKpis: [
-      ['Receita', '€12.8M', '+8.4%'],
-      ['Margem EBITDA', '18.7%', '+1.9 pp'],
-      ['Desvio objetivo', '€420K', 'em risco'],
-      ['Precisão forecast', '94.2%', '+3.1 pp']
-    ],
-    use: 'Board-level view of revenue, costs, margin, targets and forecast gaps.',
-    ptUse: 'Visão para gestão de receita, custos, margem, objetivos e desvios de forecast.',
-    sources: 'ERP, finance files, CRM/Salesforce, budget files, SQL Server, BigQuery.',
-    ptSources: 'ERP, ficheiros financeiros, CRM/Salesforce, orçamento, SQL Server, BigQuery.',
-    decisions: 'Where to act first, which business units are below target, where margin is being lost.',
-    ptDecisions: 'Onde atuar primeiro, que áreas estão abaixo do objetivo e onde se perde margem.',
-    deliverable: 'Power BI executive report with KPI cards, drill-down pages, variance analysis and refresh logic.',
-    ptDeliverable: 'Relatório Power BI executivo com KPIs, drill-down, análise de desvios e lógica de refresh.'
-  },
-  {
-    id: 'powerbiFinance',
-    tool: 'Power BI',
-    title: 'Finance & Profitability Dashboard',
-    ptTitle: 'Dashboard Financeiro & Rentabilidade',
-    accent: '#F2C811',
-    pages: ['P&L', 'Budget vs Actual', 'Cost drivers', 'Profitability'],
-    ptPages: ['P&L', 'Orçamento vs real', 'Drivers de custo', 'Rentabilidade'],
-    kpis: [
-      ['Gross margin', '31.4%', '+2.2 pp'],
-      ['OPEX', '€2.1M', '-4.6%'],
-      ['Budget variance', '€185K', 'above plan'],
-      ['Profit / customer', '€418', '+6.8%']
-    ],
-    ptKpis: [
-      ['Margem bruta', '31.4%', '+2.2 pp'],
-      ['OPEX', '€2.1M', '-4.6%'],
-      ['Desvio orçamento', '€185K', 'acima plano'],
-      ['Lucro / cliente', '€418', '+6.8%']
-    ],
-    use: 'Finance dashboard for budget control, cost monitoring and profitability analysis.',
-    ptUse: 'Dashboard financeiro para controlo orçamental, custos e análise de rentabilidade.',
-    sources: 'Accounting exports, ERP, Excel budgets, cost centres, SQL tables.',
-    ptSources: 'Exportações contabilísticas, ERP, orçamentos Excel, centros de custo, tabelas SQL.',
-    decisions: 'Which cost lines require review, which products or segments are more profitable, where to reduce waste.',
-    ptDecisions: 'Que custos rever, que produtos/segmentos são mais rentáveis e onde reduzir desperdício.',
-    deliverable: 'Power BI finance dashboard with P&L structure, measures, variance views and management commentary.',
-    ptDeliverable: 'Dashboard Power BI financeiro com estrutura P&L, measures, desvios e comentário de gestão.'
-  },
-  {
-    id: 'lookerOperations',
-    tool: 'Looker Studio',
-    title: 'Operations & SLA Control Room',
-    ptTitle: 'Controlo Operacional & SLA',
-    accent: '#4285F4',
-    pages: ['SLA', 'Backlog', 'Productivity', 'Exceptions'],
-    ptPages: ['SLA', 'Backlog', 'Produtividade', 'Exceções'],
-    kpis: [
-      ['SLA < 1h', '87.6%', '+5.4 pp'],
-      ['Open backlog', '1,248', '-12.1%'],
-      ['Avg response', '42m', '-18m'],
-      ['Exception rate', '3.2%', '-0.8 pp']
-    ],
-    ptKpis: [
-      ['SLA < 1h', '87.6%', '+5.4 pp'],
-      ['Backlog aberto', '1,248', '-12.1%'],
-      ['Resposta média', '42m', '-18m'],
-      ['Taxa exceções', '3.2%', '-0.8 pp']
-    ],
-    use: 'Operational control dashboard for teams that need daily visibility over workload and bottlenecks.',
-    ptUse: 'Dashboard operacional para equipas que precisam de visibilidade diária sobre workload e bottlenecks.',
-    sources: 'Google Sheets, BigQuery, CRM exports, ticketing tools, operational logs.',
-    ptSources: 'Google Sheets, BigQuery, exportações CRM, ticketing, logs operacionais.',
-    decisions: 'Where to allocate resources, which queues are delayed, which exceptions require intervention.',
-    ptDecisions: 'Onde alocar recursos, que filas estão atrasadas e que exceções precisam de intervenção.',
-    deliverable: 'Looker Studio report with daily refresh, filters, scorecards, tables and exception lists.',
-    ptDeliverable: 'Relatório Looker Studio com refresh diário, filtros, scorecards, tabelas e listas de exceções.'
-  },
-  {
-    id: 'lookerMarketing',
-    tool: 'Looker Studio',
-    title: 'Digital & Lead Performance Dashboard',
-    ptTitle: 'Dashboard Digital & Leads',
-    accent: '#34A853',
-    pages: ['Acquisition', 'Leads', 'Conversion', 'Channels'],
-    ptPages: ['Aquisição', 'Leads', 'Conversão', 'Canais'],
-    kpis: [
-      ['Qualified leads', '8,942', '+14.7%'],
-      ['Conversion rate', '11.8%', '+1.4 pp'],
-      ['Cost / lead', '€18.60', '-9.3%'],
-      ['Best channel', 'Organic', '31% share']
-    ],
-    ptKpis: [
-      ['Leads qualificadas', '8,942', '+14.7%'],
-      ['Taxa conversão', '11.8%', '+1.4 pp'],
-      ['Custo / lead', '€18.60', '-9.3%'],
-      ['Melhor canal', 'Orgânico', '31% share']
-    ],
-    use: 'Marketing and commercial dashboard to connect traffic, campaigns, leads and sales outcomes.',
-    ptUse: 'Dashboard de marketing/comercial para ligar tráfego, campanhas, leads e resultados de venda.',
-    sources: 'Google Analytics, Search Console, Google Ads, CRM, Salesforce, spreadsheets.',
-    ptSources: 'Google Analytics, Search Console, Google Ads, CRM, Salesforce, folhas de cálculo.',
-    decisions: 'Which channels deserve investment, which campaigns generate quality leads, where conversion drops.',
-    ptDecisions: 'Que canais merecem investimento, que campanhas geram leads de qualidade e onde cai a conversão.',
-    deliverable: 'Looker Studio dashboard with acquisition funnel, channel analysis and lead quality indicators.',
-    ptDeliverable: 'Dashboard Looker Studio com funil de aquisição, análise por canal e indicadores de qualidade.'
-  }
-]
+const dashboardOrder = ['powerbiExecutive', 'powerbiFinance', 'dataStudioDigital', 'dataStudioOperations']
 
 function App() {
   const [lang, setLang] = useState('en')
   const [tool, setTool] = useState('All')
-  const [activeReportId, setActiveReportId] = useState('powerbiExecutive')
-  const [pageIndex, setPageIndex] = useState(0)
-  const [period, setPeriod] = useState('YTD')
+  const [activeId, setActiveId] = useState('powerbiExecutive')
   const t = copy[lang]
 
-  const filteredReports = useMemo(() => {
-    if (tool === 'All' || tool === 'Todos') return reports
-    return reports.filter((r) => r.tool === tool)
-  }, [tool])
+  const dashboards = t.dashboards
 
-  const activeReport = reports.find((r) => r.id === activeReportId) || reports[0]
-  const activeKpis = lang === 'pt' ? activeReport.ptKpis : activeReport.kpis
-  const activePages = lang === 'pt' ? activeReport.ptPages : activeReport.pages
-  const embedUrl = EMBED_URLS[activeReport.id]
+  const filteredIds = useMemo(() => {
+    const normalized = tool === 'Todos' ? 'All' : tool
+    if (normalized === 'All') return dashboardOrder
+    return dashboardOrder.filter((id) => dashboards[id].tool === normalized)
+  }, [tool, dashboards])
 
-  const handleTool = (tab) => {
-    const normalized = tab === 'Todos' ? 'All' : tab
+  const activeDashboard = dashboards[activeId] ?? dashboards.powerbiExecutive
+
+  const switchTool = (tab) => {
     setTool(tab)
-    const next = normalized === 'All' ? reports[0] : reports.find((r) => r.tool === normalized)
-    if (next) setActiveReportId(next.id)
-    setPageIndex(0)
+    const normalized = tab === 'Todos' ? 'All' : tab
+    const ids = normalized === 'All'
+      ? dashboardOrder
+      : dashboardOrder.filter((id) => dashboards[id].tool === normalized)
+    if (!ids.includes(activeId)) setActiveId(ids[0])
   }
 
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Fernando Almeida home">
-          <span className="brand-mark">FA</span>
-          <span>Fernando Almeida</span>
-        </a>
-        <nav className="nav-links" aria-label="Main navigation">
+        <a className="brand" href="#top">Fernando Almeida</a>
+
+        <nav className="nav-links">
           {t.nav.map((item, index) => (
-            <a key={item} href={['#value', '#dashboards', '#services', '#experience', '#contact'][index]}>{item}</a>
+            <a key={item} href={['#value', '#dashboards', '#experience', '#contact'][index]}>{item}</a>
           ))}
         </nav>
+
         <button className="lang-toggle" onClick={() => setLang(lang === 'en' ? 'pt' : 'en')}>
           {lang === 'en' ? 'PT' : 'EN'}
         </button>
@@ -289,12 +241,12 @@ function App() {
             <h1>{t.heroTitle}</h1>
             <p className="hero-copy">{t.heroText}</p>
             <div className="hero-actions">
-              <a className="button primary" href="#dashboards">{t.ctaDashboard}</a>
+              <a className="button primary" href="#dashboards">{t.ctaDashboards}</a>
               <a className="button ghost" href={`${base}cv-fernando-almeida.pdf`} target="_blank" rel="noreferrer">{t.ctaCV}</a>
             </div>
           </div>
 
-          <aside className="profile-panel" aria-label="Profile card">
+          <aside className="profile-panel">
             <div className="profile-photo-wrap">
               <img
                 className="profile-photo"
@@ -307,30 +259,30 @@ function App() {
               />
             </div>
             <div className="profile-card-text">
-              <h2>{t.profileTitle}</h2>
+              <h2>{t.profileName}</h2>
               <p>{t.profileRole}</p>
-              <span>{t.profileNote}</span>
+              <span>{t.profileDescription}</span>
             </div>
-            <div className="profile-mini-chart" aria-hidden="true">
-              {[58, 78, 66, 90, 84, 96].map((h, i) => <i key={i} style={{ height: `${h}%` }} />)}
+            <div className="badge-row">
+              {t.badges.map((badge) => <span key={badge}>{badge}</span>)}
             </div>
           </aside>
         </section>
 
-        <section className="metrics-strip" aria-label="Highlights">
+        <section className="metrics-strip section-x">
           {t.stats.map(([number, label]) => (
-            <div key={number} className="metric-item">
+            <article className="metric-item" key={number}>
               <strong>{number}</strong>
               <span>{label}</span>
-            </div>
+            </article>
           ))}
         </section>
 
-        <section className="section-pad value-section" id="value">
+        <section className="section-pad" id="value">
           <div className="section-heading narrow">
-            <p className="eyebrow">Business value</p>
+            <p className="eyebrow">{t.valueEyebrow}</p>
             <h2>{t.valueTitle}</h2>
-            <p>{t.valueSubtitle}</p>
+            <p>{t.valueText}</p>
           </div>
           <div className="value-grid">
             {t.valueCards.map(([title, text], index) => (
@@ -346,107 +298,95 @@ function App() {
         <section className="section-pad dashboards-section" id="dashboards">
           <div className="section-heading dashboards-heading">
             <div>
-              <p className="eyebrow">Power BI · Looker Studio</p>
+              <p className="eyebrow">{t.dashboardsEyebrow}</p>
               <h2>{t.dashboardsTitle}</h2>
-              <p>{t.dashboardsSubtitle}</p>
+              <p>{t.dashboardsText}</p>
             </div>
-            <div className="tool-tabs" role="tablist" aria-label="Dashboard tools">
-              {t.dashboardTabs.map((tab) => {
-                const active = tool === tab || (tool === 'All' && tab === 'All') || (tool === 'Todos' && tab === 'Todos')
-                return <button key={tab} className={active ? 'active' : ''} onClick={() => handleTool(tab)}>{tab}</button>
-              })}
+            <div className="tool-tabs">
+              {t.tabs.map((tab) => (
+                <button
+                  key={tab}
+                  className={tool === tab || (tool === 'All' && tab === 'All') || (tool === 'Todos' && tab === 'Todos') ? 'active' : ''}
+                  onClick={() => switchTool(tab)}
+                >
+                  {tab}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="dashboard-layout">
-            <aside className="report-list" aria-label="Dashboard list">
-              {filteredReports.map((report) => (
-                <button
-                  key={report.id}
-                  onClick={() => { setActiveReportId(report.id); setPageIndex(0) }}
-                  className={activeReportId === report.id ? 'report-card active' : 'report-card'}
-                  style={{ '--accent': report.accent }}
-                >
-                  <span className="report-tool" style={{ '--accent': report.accent }}>{report.tool}</span>
-                  <strong>{lang === 'pt' ? report.ptTitle : report.title}</strong>
-                  <small>{lang === 'pt' ? report.ptUse : report.use}</small>
-                </button>
-              ))}
+            <aside className="report-list">
+              {filteredIds.map((id) => {
+                const dashboard = dashboards[id]
+                const active = id === activeId
+                return (
+                  <button key={id} className={active ? 'report-card active' : 'report-card'} onClick={() => setActiveId(id)}>
+                    <span className={`report-tool ${dashboard.tool === 'Power BI' ? 'power' : 'studio'}`}>{dashboard.tool}</span>
+                    <strong>{dashboard.title}</strong>
+                    <small>{dashboard.pages.slice(0, 3).join(' · ')}</small>
+                  </button>
+                )
+              })}
             </aside>
 
             <div className="dashboard-main">
-              <div className="dashboard-toolbar">
-                <div>
-                  <span className="tool-badge" style={{ '--accent': activeReport.accent }}>{activeReport.tool}</span>
-                  <h3>{lang === 'pt' ? activeReport.ptTitle : activeReport.title}</h3>
+              <div className="dashboard-preview-card">
+                <div className="preview-header">
+                  <div>
+                    <span className={`tool-badge ${activeDashboard.tool === 'Power BI' ? 'power' : 'studio'}`}>{activeDashboard.tool}</span>
+                    <h3>{activeDashboard.title}</h3>
+                  </div>
                 </div>
-                <label className="period-select">
-                  {t.period}
-                  <select value={period} onChange={(event) => setPeriod(event.target.value)}>
-                    <option>YTD</option>
-                    <option>QTD</option>
-                    <option>Last 12 months</option>
-                    <option>Custom</option>
-                  </select>
-                </label>
+                <div className="dashboard-image-wrap">
+                  <img src={activeDashboard.image} alt={activeDashboard.title} className="dashboard-image" />
+                </div>
               </div>
 
-              <div className="report-pages" aria-label={t.pages}>
-                {activePages.map((page, index) => (
-                  <button key={page} className={pageIndex === index ? 'active' : ''} onClick={() => setPageIndex(index)}>{page}</button>
-                ))}
-              </div>
-
-              {embedUrl ? (
-                <iframe className="live-embed" title={activeReport.title} src={embedUrl} allowFullScreen />
-              ) : (
-                <DashboardMock report={activeReport} kpis={activeKpis} lang={lang} period={period} page={activePages[pageIndex]} />
-              )}
-
-              <div className="dashboard-explainer">
-                <InfoBlock label={t.businessUse} value={lang === 'pt' ? activeReport.ptUse : activeReport.use} />
-                <InfoBlock label={t.dataSources} value={lang === 'pt' ? activeReport.ptSources : activeReport.sources} />
-                <InfoBlock label={t.decisions} value={lang === 'pt' ? activeReport.ptDecisions : activeReport.decisions} />
-                <InfoBlock label={t.deliverable} value={lang === 'pt' ? activeReport.ptDeliverable : activeReport.deliverable} />
-              </div>
-
-              <div className="embed-note">
-                <strong>{t.embedReady}</strong>
-                <span>{t.embedNote}</span>
+              <div className="dashboard-explainer card-surface">
+                <div>
+                  <strong>{t.detailsTitle}</strong>
+                  <p>{activeDashboard.tool === 'Power BI'
+                    ? (lang === 'en'
+                      ? 'A premium executive-style report designed for leadership visibility, KPI review and structured analysis.'
+                      : 'Um relatório premium de estilo executivo desenhado para visibilidade da gestão, revisão de KPI e análise estruturada.')
+                    : (lang === 'en'
+                      ? 'A clean, business-ready Data Studio report suitable for operational or commercial monitoring and quick action.'
+                      : 'Um relatório Data Studio limpo e orientado ao negócio, adequado a monitorização operacional ou comercial e ação rápida.')}
+                  </p>
+                </div>
+                <div>
+                  <strong>{t.pagesLabel}</strong>
+                  <p>{activeDashboard.pages.join(' · ')}</p>
+                </div>
+                <div>
+                  <strong>{t.sourcesLabel}</strong>
+                  <p>{activeDashboard.sources}</p>
+                </div>
+                <div>
+                  <strong>{t.decisionsLabel}</strong>
+                  <p>{activeDashboard.decisions}</p>
+                </div>
+                <div>
+                  <strong>{t.deliverablesLabel}</strong>
+                  <p>{activeDashboard.deliverables}</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section-pad services-section" id="services">
+        <section className="section-pad" id="experience">
           <div className="section-heading narrow">
-            <p className="eyebrow">Deliverables</p>
-            <h2>{t.servicesTitle}</h2>
-          </div>
-          <div className="services-grid">
-            {t.services.map(([title, text]) => (
-              <article className="service-card" key={title}>
-                <div className="service-icon">✦</div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section-pad experience-section" id="experience">
-          <div className="section-heading narrow">
-            <p className="eyebrow">Experience</p>
+            <p className="eyebrow">{t.experienceEyebrow}</p>
             <h2>{t.experienceTitle}</h2>
+            <p>{t.experienceText}</p>
           </div>
-          <div className="timeline">
-            {t.experience.map(([company, role, dates, text]) => (
-              <article className="timeline-item" key={`${company}-${dates}`}>
-                <div>
-                  <span>{dates}</span>
-                  <h3>{company}</h3>
-                  <strong>{role}</strong>
-                </div>
+          <div className="experience-grid">
+            {t.experienceCards.map(([period, title, text]) => (
+              <article className="experience-card" key={period}>
+                <span>{period}</span>
+                <h3>{title}</h3>
                 <p>{text}</p>
               </article>
             ))}
@@ -455,131 +395,21 @@ function App() {
 
         <section className="contact-section" id="contact">
           <div>
-            <p className="eyebrow">Contact</p>
+            <p className="eyebrow">{t.contactEyebrow}</p>
             <h2>{t.contactTitle}</h2>
             <p>{t.contactText}</p>
           </div>
           <div className="contact-actions">
             <a className="button primary" href="mailto:fernandoluisdba@gmail.com">fernandoluisdba@gmail.com</a>
-            <a className="button ghost" href="https://www.linkedin.com/in/fernando-almeida-b33558301" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a className="button ghost" href="https://www.linkedin.com/in/fernando-almeida-b33558301" target="_blank" rel="noreferrer">{t.ctaLinkedIn}</a>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <span>{t.footer}</span>
         <span>© {new Date().getFullYear()} Fernando Almeida</span>
       </footer>
     </div>
-  )
-}
-
-function InfoBlock({ label, value }) {
-  return (
-    <div>
-      <strong>{label}</strong>
-      <p>{value}</p>
-    </div>
-  )
-}
-
-function DashboardMock({ report, kpis, lang, period, page }) {
-  const isPower = report.tool === 'Power BI'
-  const palette = isPower ? ['#F2C811', '#EAB308', '#8A6F00'] : ['#4285F4', '#34A853', '#FBBC05']
-
-  return (
-    <div className={isPower ? 'bi-frame power-frame' : 'bi-frame looker-frame'}>
-      <header className="bi-header">
-        <div>
-          <span>{report.tool} {lang === 'pt' ? 'report' : 'report'}</span>
-          <h4>{lang === 'pt' ? report.ptTitle : report.title}</h4>
-        </div>
-        <div className="bi-filters">
-          <span>{period}</span>
-          <span>{page}</span>
-          <span>{lang === 'pt' ? 'Atualizado hoje' : 'Updated today'}</span>
-        </div>
-      </header>
-
-      <div className="bi-body">
-        <aside className="bi-sidebar">
-          <span>{lang === 'pt' ? 'Páginas' : 'Pages'}</span>
-          {(lang === 'pt' ? report.ptPages : report.pages).map((p, index) => <i key={p} className={p === page ? 'selected' : ''}>{index + 1}. {p}</i>)}
-        </aside>
-
-        <section className="bi-canvas">
-          <div className="bi-kpis">
-            {kpis.map(([label, value, delta]) => (
-              <article key={label}>
-                <span>{label}</span>
-                <strong>{value}</strong>
-                <em>{delta}</em>
-              </article>
-            ))}
-          </div>
-
-          <div className="visual-grid">
-            <div className="visual-card wide">
-              <VisualTitle title={lang === 'pt' ? 'Performance mensal vs objetivo' : 'Monthly performance vs target'} />
-              <BarChart palette={palette} />
-            </div>
-            <div className="visual-card">
-              <VisualTitle title={lang === 'pt' ? 'Contribuição por área' : 'Contribution by area'} />
-              <DonutChart color={palette[0]} />
-            </div>
-            <div className="visual-card">
-              <VisualTitle title={lang === 'pt' ? 'Tendência' : 'Trend'} />
-              <LineChart color={palette[0]} />
-            </div>
-            <div className="visual-card table-card wide">
-              <VisualTitle title={lang === 'pt' ? 'Ações recomendadas' : 'Recommended actions'} />
-              <table>
-                <tbody>
-                  {(lang === 'pt' ? [
-                    ['Financeiro', 'Rever centros de custo acima do orçamento', 'Alta'],
-                    ['Comercial', 'Priorizar canais com maior conversão', 'Média'],
-                    ['Operações', 'Reduzir backlog nas filas críticas', 'Alta']
-                  ] : [
-                    ['Finance', 'Review cost centres above budget', 'High'],
-                    ['Sales', 'Prioritise channels with higher conversion', 'Medium'],
-                    ['Operations', 'Reduce backlog in critical queues', 'High']
-                  ]).map((row) => (
-                    <tr key={row.join('-')}>
-                      <td>{row[0]}</td>
-                      <td>{row[1]}</td>
-                      <td><span className="priority">{row[2]}</span></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  )
-}
-
-function VisualTitle({ title }) {
-  return <div className="visual-title"><strong>{title}</strong><span>⋯</span></div>
-}
-
-function BarChart({ palette }) {
-  const bars = [48, 64, 58, 76, 70, 88, 82, 94]
-  return <div className="bar-chart">{bars.map((bar, i) => <span key={i} style={{ height: `${bar}%`, background: i > 5 ? palette[0] : undefined }} />)}</div>
-}
-
-function DonutChart({ color }) {
-  return <div className="donut" style={{ '--donut': color }}><strong>68%</strong><span>target</span></div>
-}
-
-function LineChart({ color }) {
-  return (
-    <svg className="line-chart" viewBox="0 0 320 160" role="img" aria-label="Trend line chart">
-      <path d="M18 124 C62 98, 72 112, 108 84 S168 68, 206 92 S264 44, 302 36" fill="none" stroke={color} strokeWidth="7" strokeLinecap="round" />
-      <path d="M18 124 C62 98, 72 112, 108 84 S168 68, 206 92 S264 44, 302 36 L302 144 L18 144 Z" fill={color} opacity=".12" />
-      {[18,108,206,302].map((x, i) => <circle key={i} cx={x} cy={[124,84,92,36][i]} r="6" fill={color} />)}
-    </svg>
   )
 }
 

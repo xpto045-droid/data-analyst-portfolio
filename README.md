@@ -1,76 +1,41 @@
 # Fernando Almeida — Premium BI Portfolio
 
-Premium portfolio website for a Data Analyst / Business Intelligence profile.
+Updated version with:
 
-## What changed in this version
+- `Data Specialist` positioning
+- no `FA` icon in the header
+- improved profile description under the photo
+- no overlay on top of the profile image
+- `Power BI & Data Studio` dashboard examples using real custom-made dashboard images
+- generic experience section without naming past employers
+- cleaner footer
+- English / Portuguese switch
 
-- More executive and premium visual direction.
-- No dashboard overlapping the profile photo.
-- English by default, with EN/PT switch.
-- Generalist business positioning: finance, operations, sales, CRM, reporting and management.
-- Dashboard section focused on **Power BI** and **Looker Studio / Data Studio** examples.
-- Each dashboard explains:
-  - business use;
-  - possible data sources;
-  - decisions supported;
-  - deliverable produced.
-- Ready to replace mock previews with real embedded reports.
+## To use your profile photo
 
-## Add profile photo
+Place your image in:
 
-Place the profile image here:
+`public/profile.jpg`
 
-```text
-public/profile.jpg
-```
+If no photo is provided, the site falls back to `public/profile-placeholder.svg`.
 
-The site automatically uses it. If no photo exists, it uses the placeholder.
+## Run locally
 
-## Add real Power BI or Looker Studio embeds
-
-Open:
-
-```text
-src/reportEmbeds.js
-```
-
-Paste your real embed URLs:
-
-```js
-export const EMBED_URLS = {
-  powerbiExecutive: 'PASTE_POWERBI_EMBED_URL_HERE',
-  powerbiFinance: 'PASTE_POWERBI_EMBED_URL_HERE',
-  lookerOperations: 'PASTE_LOOKER_STUDIO_EMBED_URL_HERE',
-  lookerMarketing: 'PASTE_LOOKER_STUDIO_EMBED_URL_HERE'
-}
-```
-
-If the URL is empty, the site shows the premium interactive mockup. If the URL is filled, the site displays the live report iframe.
-
-## Local test
-
-```powershell
-npm install --no-audit --no-fund
+```bash
+npm install
 npm run dev
 ```
 
 ## Build
 
-```powershell
+```bash
 npm run build
 ```
 
-## Publish update to GitHub Pages
+## Publish update to GitHub
 
-Copy all files into the existing GitHub project folder and run:
-
-```powershell
-Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
-npm install --no-audit --no-fund
-npm run build
+```bash
 git add .
-git commit -m "Upgrade premium BI portfolio"
+git commit -m "Refine premium BI portfolio"
 git push
 ```
-
-Then open GitHub Actions and wait for the deployment to be green.

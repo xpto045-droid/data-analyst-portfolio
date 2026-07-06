@@ -1,52 +1,76 @@
-# Fernando Almeida — Data Analyst Portfolio
+# Fernando Almeida — Premium BI Portfolio
 
-Premium React/Vite portfolio with bilingual EN/PT content and interactive dashboard mockups inspired by Power BI and Looker Studio/Data Studio.
+Premium portfolio website for a Data Analyst / Business Intelligence profile.
 
-## Run locally
+## What changed in this version
 
-```bash
-npm install
-npm run dev
-```
+- More executive and premium visual direction.
+- No dashboard overlapping the profile photo.
+- English by default, with EN/PT switch.
+- Generalist business positioning: finance, operations, sales, CRM, reporting and management.
+- Dashboard section focused on **Power BI** and **Looker Studio / Data Studio** examples.
+- Each dashboard explains:
+  - business use;
+  - possible data sources;
+  - decisions supported;
+  - deliverable produced.
+- Ready to replace mock previews with real embedded reports.
 
-## Build
+## Add profile photo
 
-```bash
-npm run build
-```
-
-## Publish to GitHub Pages
-
-Copy these files into your existing repository folder, then run:
-
-```bash
-git add .
-git commit -m "Upgrade executive portfolio"
-git push
-```
-
-Then check GitHub > Actions and wait for the deployment to complete.
-
-## Add a real profile photo
-
-Add a square or portrait image to:
+Place the profile image here:
 
 ```text
 public/profile.jpg
 ```
 
-Then open `src/App.jsx` and change:
+The site automatically uses it. If no photo exists, it uses the placeholder.
 
-```js
-photo: './profile-placeholder.svg'
+## Add real Power BI or Looker Studio embeds
+
+Open:
+
+```text
+src/reportEmbeds.js
 ```
 
-to:
+Paste your real embed URLs:
 
 ```js
-photo: './profile.jpg'
+export const EMBED_URLS = {
+  powerbiExecutive: 'PASTE_POWERBI_EMBED_URL_HERE',
+  powerbiFinance: 'PASTE_POWERBI_EMBED_URL_HERE',
+  lookerOperations: 'PASTE_LOOKER_STUDIO_EMBED_URL_HERE',
+  lookerMarketing: 'PASTE_LOOKER_STUDIO_EMBED_URL_HERE'
+}
 ```
 
-## Real Power BI / Looker Studio embeds
+If the URL is empty, the site shows the premium interactive mockup. If the URL is filled, the site displays the live report iframe.
 
-The dashboard area currently uses interactive mockups so the portfolio works without external accounts or private data. To embed real dashboards later, replace the mockup area with public iframe/embed links from Power BI Publish to web or Looker Studio Embed report.
+## Local test
+
+```powershell
+npm install --no-audit --no-fund
+npm run dev
+```
+
+## Build
+
+```powershell
+npm run build
+```
+
+## Publish update to GitHub Pages
+
+Copy all files into the existing GitHub project folder and run:
+
+```powershell
+Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
+npm install --no-audit --no-fund
+npm run build
+git add .
+git commit -m "Upgrade premium BI portfolio"
+git push
+```
+
+Then open GitHub Actions and wait for the deployment to be green.

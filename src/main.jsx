@@ -8,9 +8,9 @@ const copy = {
   en: {
     nav: ['Value', 'Dashboards', 'Experience', 'Contact'],
     heroEyebrow: 'Data Specialist, Business Intelligence, Reporting',
-    heroTitle: 'I build business ready dashboards, reporting systems and insight that help companies decide faster.',
+    heroTitle: 'Business dashboards, reporting automation and decision support.',
     heroText:
-      'Business facing data specialist based in Lisbon, with experience turning complex data into premium dashboards, automated reporting and clear business insight. I work across Power BI, Data Studio, SQL, BigQuery, Excel and Python to support finance, operations, commercial teams and management reporting.',
+      'Data specialist based in Lisbon, focused on Power BI, Data Studio, SQL, BigQuery, Excel and Python. I help companies replace fragmented spreadsheets with clear dashboards, reliable KPIs and practical insight for finance, operations, commercial teams and management.',
     ctaDashboards: 'See dashboard examples',
     ctaCV: 'Download CV',
     profileName: 'Fernando Almeida',
@@ -24,21 +24,21 @@ const copy = {
       ['SQL, BigQuery, Automation', 'data extraction, modelling and process improvement']
     ],
     valueEyebrow: 'How I help companies',
-    valueTitle: 'A portfolio built for business value, not only design.',
+    valueTitle: 'What the company gains from better BI.',
     valueText:
-      'The goal is to give decision makers a clearer operating picture, what is happening, why it is happening, what should be prioritised and where action is needed.',
+      'The output is not just a dashboard. The company gets cleaner reporting, faster answers, less manual work and a clearer view of performance, risk and priorities.',
     valueCards: [
-      ['Executive dashboards', 'Premium KPI dashboards for management, with clear hierarchy, business context, target tracking and actionable insight.'],
-      ['Finance reporting', 'Margin, budget, forecast, cost and profitability views that help leadership understand performance and control risk.'],
-      ['Operations control', 'SLA, workload, backlog, productivity and exception monitoring for teams that need daily operational visibility.'],
-      ['Commercial performance', 'Pipeline, lead quality, channel performance, conversion and growth dashboards for sales and marketing teams.'],
-      ['Data automation', 'Less manual Excel work through structured SQL, scheduled refreshes, calculated logic and repeatable reporting flows.'],
-      ['Business storytelling', 'Not only charts, concise analysis, interpretation and recommendations that help teams decide what to do next.']
+      ['Management visibility', 'Executive KPI dashboards that make revenue, margin, operations and targets easy to follow.'],
+      ['Finance control', 'Margin, budget, forecast and profitability views that help teams understand where value is created or lost.'],
+      ['Operational clarity', 'SLA, workload, backlog and exception monitoring for teams that need daily visibility.'],
+      ['Commercial performance', 'Pipeline, lead quality, channel performance and conversion tracking for growth teams.'],
+      ['Less manual work', 'Structured SQL, scheduled refreshes and repeatable reporting flows that reduce Excel dependency.'],
+      ['Actionable insight', 'Clear explanations of what changed, why it changed and what the business should do next.']
     ],
     dashboardsEyebrow: 'Power BI, Data Studio',
     dashboardsTitle: 'Power BI & Data Studio dashboard examples',
     dashboardsText:
-      'These examples are designed to show the type of dashboard a company can expect, premium presentation, clear KPI control, useful filters, business context and decision support.',
+      'Two simple examples of the type of BI output I can deliver, one Power BI style executive report and one Data Studio style performance dashboard.',
     tabs: ['All', 'Power BI', 'Data Studio'],
     detailsTitle: 'What this dashboard is for',
     pagesLabel: 'Typical report pages',
@@ -66,9 +66,9 @@ const copy = {
       }
     },
     experienceEyebrow: 'Experience overview',
-    experienceTitle: 'Experience built around capability and business support.',
+    experienceTitle: 'Over the last 5 years, I have worked across data, dashboards and reporting.',
     experienceText:
-      'Instead of listing past job titles, this section shows the type of work delivered, the capabilities developed and the business problems that work can help solve.',
+      'The focus is on the work delivered, reporting foundations, dashboard development, automation and business support across different contexts.',
     experienceCards: [
       ['Over the last 5 years, I have built reporting foundations', 'Designed KPI structures, performance monitoring routines and recurring reporting that make business information easier to trust and use.'],
       ['Over the last 5 years, I have developed dashboards and BI reporting', 'Created business dashboards, executive views and structured analytics for teams that need clearer performance visibility.'],
@@ -82,9 +82,9 @@ const copy = {
   pt: {
     nav: ['Valor', 'Dashboards', 'Experiência', 'Contacto'],
     heroEyebrow: 'Data Specialist, Business Intelligence, Reporting',
-    heroTitle: 'Construo dashboards, sistemas de reporting e insight orientado ao negócio, para ajudar empresas a decidir mais depressa.',
+    heroTitle: 'Dashboards de negócio, automação de reporting e apoio à decisão.',
     heroText:
-      'Data specialist com foco de negócio, em Lisboa, com experiência a transformar dados complexos em dashboards premium, reporting automatizado e insight claro. Trabalho com Power BI, Data Studio, SQL, BigQuery, Excel e Python para apoiar financeiro, operações, equipas comerciais e reporting de gestão.',
+      'Data specialist em Lisboa, focado em Power BI, Data Studio, SQL, BigQuery, Excel e Python. Ajudo empresas a substituir ficheiros dispersos por dashboards claros, KPIs fiáveis e insight prático para financeiro, operações, equipas comerciais e gestão.',
     ctaDashboards: 'Ver exemplos de dashboards',
     ctaCV: 'Descarregar CV',
     profileName: 'Fernando Almeida',
@@ -98,21 +98,21 @@ const copy = {
       ['SQL, BigQuery, Automação', 'extração de dados, modelação e melhoria de processos']
     ],
     valueEyebrow: 'Como ajudo empresas',
-    valueTitle: 'Um portfolio pensado para gerar valor de negócio, não apenas design.',
+    valueTitle: 'O que a empresa ganha com melhor BI.',
     valueText:
-      'O objetivo é dar aos decisores uma visão operacional mais clara, o que está a acontecer, porque está a acontecer, o que deve ser priorizado e onde é preciso atuar.',
+      'O resultado não é apenas um dashboard. A empresa ganha reporting mais limpo, respostas mais rápidas, menos trabalho manual e maior visibilidade sobre performance, risco e prioridades.',
     valueCards: [
-      ['Dashboards executivos', 'Dashboards premium para gestão, com hierarquia clara, contexto de negócio, acompanhamento de objetivos e insight acionável.'],
-      ['Reporting financeiro', 'Visões de margem, orçamento, forecast, custos e rentabilidade para ajudar a liderança a perceber performance e controlar risco.'],
-      ['Controlo operacional', 'Monitorização de SLA, workload, backlog, produtividade e exceções para equipas que precisam de visibilidade diária.'],
-      ['Performance comercial', 'Dashboards de pipeline, qualidade de leads, canais, conversão e crescimento para equipas comerciais e marketing.'],
-      ['Automação de dados', 'Menos trabalho manual em Excel através de SQL estruturado, refreshes programados, lógica calculada e fluxos de reporting repetíveis.'],
-      ['Storytelling de negócio', 'Não apenas gráficos, análise concisa, interpretação e recomendações que ajudam as equipas a decidir os próximos passos.']
+      ['Visibilidade para gestão', 'Dashboards executivos de KPI que tornam receita, margem, operações e objetivos fáceis de acompanhar.'],
+      ['Controlo financeiro', 'Visões de margem, orçamento, forecast e rentabilidade para perceber onde se cria ou perde valor.'],
+      ['Clareza operacional', 'Monitorização de SLA, workload, backlog e exceções para equipas que precisam de visibilidade diária.'],
+      ['Performance comercial', 'Acompanhamento de pipeline, qualidade de leads, canais e conversão para equipas de crescimento.'],
+      ['Menos trabalho manual', 'SQL estruturado, refreshes programados e fluxos repetíveis que reduzem dependência de Excel.'],
+      ['Insight acionável', 'Explicação clara do que mudou, porque mudou e o que o negócio deve fazer a seguir.']
     ],
     dashboardsEyebrow: 'Power BI, Data Studio',
     dashboardsTitle: 'Exemplos de dashboards Power BI & Data Studio',
     dashboardsText:
-      'Estes exemplos mostram o tipo de dashboard que uma empresa pode esperar, apresentação premium, controlo claro de KPI, filtros úteis, contexto de negócio e apoio à decisão.',
+      'Dois exemplos simples do tipo de output de BI que posso entregar, um relatório executivo em estilo Power BI e um dashboard de performance em estilo Data Studio.',
     tabs: ['Todos', 'Power BI', 'Data Studio'],
     detailsTitle: 'Objetivo deste dashboard',
     pagesLabel: 'Páginas típicas do relatório',
@@ -140,9 +140,9 @@ const copy = {
       }
     },
     experienceEyebrow: 'Visão de experiência',
-    experienceTitle: 'Experiência apresentada através de capacidade e apoio ao negócio.',
+    experienceTitle: 'Nos últimos 5 anos, trabalhei em dados, dashboards e reporting.',
     experienceText:
-      'Em vez de listar cargos passados, esta secção mostra o tipo de trabalho entregue, as capacidades desenvolvidas e os problemas de negócio que esse trabalho pode ajudar a resolver.',
+      'O foco está no trabalho entregue, bases de reporting, desenvolvimento de dashboards, automação e apoio ao negócio em diferentes contextos.',
     experienceCards: [
       ['Nos últimos 5 anos, construí bases de reporting', 'Desenhei estruturas de KPI, rotinas de acompanhamento de performance e reporting recorrente para tornar a informação mais fiável e fácil de usar.'],
       ['Nos últimos 5 anos, desenvolvi dashboards e reporting de BI', 'Criei dashboards de negócio, vistas executivas e analytics estruturado para equipas que precisam de maior clareza sobre a performance.'],

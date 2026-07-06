@@ -1,42 +1,30 @@
-# Fernando Almeida, Premium BI Portfolio, v4
+# Fernando Almeida, Premium BI Portfolio, v5 compact
 
-This version includes:
+Updated version focused on:
 
-- the new Power BI dashboard image on the site
-- the new Data Studio dashboard image on the site
-- experience copy without dates or job titles
-- wording updated to use commas instead of em dashes
-- prebuilt `dist` folder and simplified GitHub Pages workflow
+- smaller and more balanced visual scale
+- more compact hero section, profile card, cards and dashboards
+- clearer value proposition for companies
+- wording focused on what the business gains, cleaner reporting, faster decisions, less manual work and better KPI visibility
+- Power BI and Data Studio dashboard images included
+- experience section without job titles or dates
+- prebuilt `dist` folder included for GitHub Pages
 
 ## Profile photo
 
-Place your real photo in:
+Place the real profile photo here:
 
 `public/profile.jpg`
 
-If no photo is available, the site falls back to `public/profile-placeholder.svg`.
+## Publish to GitHub
 
-## Local preview
+The workflow publishes the prebuilt `dist` folder, so build first and force add `dist`:
 
 ```bash
 npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-```
-
-## Publish to GitHub
-
-Because the workflow publishes the prebuilt `dist` folder, build first and then push:
-
-```bash
 npm run build
 git add .
 git add -f dist
-git commit -m "Update portfolio"
+git commit -m "Improve compact premium portfolio"
 git push
 ```

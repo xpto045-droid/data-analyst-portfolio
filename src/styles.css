@@ -492,3 +492,258 @@ h1 {
   .hero-actions, .contact-actions { width: 100%; }
   .badge-row span { font-size: 0.82rem; }
 }
+
+/* Compact premium scale, v5 */
+:root {
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+}
+
+.section-pad {
+  padding: clamp(44px, 5.5vw, 82px) clamp(18px, 4vw, 64px);
+}
+.section-x {
+  padding-left: clamp(18px, 4vw, 64px);
+  padding-right: clamp(18px, 4vw, 64px);
+}
+.topbar {
+  padding: 13px clamp(18px, 4vw, 56px);
+}
+.brand { font-size: 1rem; }
+.nav-links { gap: 18px; font-size: 0.88rem; }
+.lang-toggle { padding: 8px 12px; }
+
+.hero {
+  grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.62fr);
+  gap: clamp(30px, 5vw, 62px);
+  min-height: auto;
+  padding-top: clamp(50px, 6vw, 84px);
+  padding-bottom: clamp(38px, 5vw, 70px);
+}
+.hero-content { max-width: 760px; }
+.eyebrow {
+  margin-bottom: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+}
+h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.35rem, 5.8vw, 4.85rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+.hero-copy {
+  max-width: 700px;
+  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+  line-height: 1.65;
+}
+.hero-actions { margin-top: 24px; gap: 10px; }
+.button {
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 0.92rem;
+}
+
+.profile-panel {
+  padding: 16px;
+  border-radius: 24px;
+}
+.profile-photo-wrap {
+  max-height: 365px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+}
+.profile-card-text { padding: 18px 2px 4px; }
+.profile-card-text h2 {
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  margin-bottom: 4px;
+}
+.profile-card-text p {
+  margin-bottom: 9px;
+  font-size: 0.95rem;
+}
+.profile-card-text span {
+  line-height: 1.62;
+  font-size: 0.92rem;
+}
+.badge-row { gap: 8px; margin-top: 14px; }
+.badge-row span {
+  padding: 7px 11px;
+  font-size: 0.78rem;
+}
+
+.metrics-strip {
+  margin-top: 0;
+}
+.metric-item {
+  padding: 24px 26px;
+  min-height: 118px;
+}
+.metric-item:first-child {
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+}
+.metric-item:last-child {
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+}
+.metric-item strong {
+  font-size: clamp(1.45rem, 3.1vw, 2.55rem);
+  margin-bottom: 8px;
+}
+.metric-item span {
+  font-size: 0.95rem;
+  line-height: 1.42;
+}
+
+.section-heading { margin-bottom: 24px; }
+.section-heading.narrow { max-width: 760px; }
+.section-heading h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.75rem, 3vw, 2.65rem);
+  letter-spacing: -0.045em;
+}
+.section-heading p:last-child {
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.value-grid {
+  gap: 14px;
+}
+.value-card {
+  border-radius: 18px;
+  padding: 20px;
+}
+.card-number {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+}
+.value-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 7px;
+}
+.value-card p {
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+.dashboards-heading {
+  gap: 18px;
+}
+.tool-tabs { gap: 8px; }
+.tool-tabs button {
+  padding: 8px 13px;
+  font-size: 0.86rem;
+}
+.dashboard-layout {
+  grid-template-columns: 255px minmax(0, 1fr);
+  gap: 16px;
+}
+.report-list { gap: 10px; top: 82px; }
+.report-card {
+  border-radius: 18px;
+  padding: 14px;
+}
+.report-card strong {
+  margin-top: 7px;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+.report-card small {
+  font-size: 0.8rem;
+}
+.report-tool,
+.tool-badge {
+  min-height: 26px;
+  padding: 0 9px;
+  font-size: 0.72rem;
+}
+.dashboard-main { gap: 14px; }
+.dashboard-preview-card,
+.card-surface {
+  border-radius: 22px;
+  padding: 16px;
+}
+.preview-header { margin-bottom: 12px; }
+.preview-header h3 {
+  margin-top: 8px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+}
+.dashboard-image-wrap {
+  border-radius: 16px;
+}
+.dashboard-explainer {
+  gap: 14px 18px;
+}
+.dashboard-explainer strong {
+  margin-bottom: 6px;
+  font-size: 0.88rem;
+}
+.dashboard-explainer p {
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.experience-grid {
+  gap: 14px;
+}
+.experience-card {
+  border-radius: 18px;
+  padding: 20px;
+}
+.experience-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 9px;
+}
+.experience-card p {
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+.contact-section {
+  margin: 0 clamp(18px, 4vw, 64px) 58px;
+  border-radius: 24px;
+  padding: clamp(22px, 3.6vw, 34px);
+}
+.contact-section h2 {
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  margin-bottom: 8px;
+}
+.contact-section p:last-child {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  max-width: 660px;
+}
+.footer {
+  padding-bottom: 26px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .dashboard-layout,
+  .value-grid,
+  .experience-grid,
+  .dashboard-explainer,
+  .metrics-strip {
+    grid-template-columns: 1fr;
+  }
+  .metric-item { min-height: auto; border-radius: 18px !important; }
+}
+
+@media (max-width: 860px) {
+  .hero { padding-top: 34px; }
+  h1 { font-size: clamp(2.15rem, 10vw, 3.5rem); }
+  .profile-panel,
+  .dashboard-preview-card,
+  .card-surface,
+  .value-card,
+  .experience-card,
+  .contact-section { padding: 16px; }
+}

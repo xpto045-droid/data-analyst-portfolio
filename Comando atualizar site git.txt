@@ -1,4 +1,5 @@
 npm run build
 git add .
+git add -f dist
 git commit -m "Update portfolio"
 git push

@@ -1,25 +1,22 @@
-# Fernando Almeida — Premium BI Portfolio
+# Fernando Almeida, Premium BI Portfolio, v4
 
-Updated version with:
+This version includes:
 
-- `Data Specialist` positioning
-- no `FA` icon in the header
-- improved profile description under the photo
-- no overlay on top of the profile image
-- `Power BI & Data Studio` dashboard examples using real custom-made dashboard images
-- generic experience section without naming past employers
-- cleaner footer
-- English / Portuguese switch
+- the new Power BI dashboard image on the site
+- the new Data Studio dashboard image on the site
+- experience copy without dates or job titles
+- wording updated to use commas instead of em dashes
+- prebuilt `dist` folder and simplified GitHub Pages workflow
 
-## To use your profile photo
+## Profile photo
 
-Place your image in:
+Place your real photo in:
 
 `public/profile.jpg`
 
-If no photo is provided, the site falls back to `public/profile-placeholder.svg`.
+If no photo is available, the site falls back to `public/profile-placeholder.svg`.
 
-## Run locally
+## Local preview
 
 ```bash
 npm install
@@ -32,10 +29,14 @@ npm run dev
 npm run build
 ```
 
-## Publish update to GitHub
+## Publish to GitHub
+
+Because the workflow publishes the prebuilt `dist` folder, build first and then push:
 
 ```bash
+npm run build
 git add .
-git commit -m "Refine premium BI portfolio"
+git add -f dist
+git commit -m "Update portfolio"
 git push
 ```

@@ -1,33 +1,39 @@
-# Fernando Almeida, Premium BI Portfolio, v6
+# Fernando Almeida — Data Specialist & BI Portfolio
 
-This version adds a broader decision-support section so the portfolio is not only focused on dashboards.
+Bilingual React/Vite portfolio focused on Business Intelligence, reporting automation and decision support.
 
-Included:
+## Included
 
-- Power BI and Data Studio dashboard examples
-- compact premium layout
-- English and Portuguese switch
-- experience presented without employer names or dates
-- new section for decision reports, risk analysis, KPI diagnostics, business cases, operational reviews and executive summaries
-- prebuilt `dist` folder and simplified GitHub Pages workflow
+- English and Portuguese language switch with saved preference
+- responsive premium layout
+- Power BI and Looker Studio portfolio examples
+- full-screen dashboard preview
+- business value, decision support and experience sections
+- accessible navigation and reduced-motion support
+- prebuilt `dist` folder for GitHub Pages
 
-## Profile photo
+## Local development
 
-Place your real photo in:
+```bash
+npm install
+npm run dev
+```
 
-`public/profile.jpg`
+## Production build
 
-If no photo is available, the site falls back to `public/profile-placeholder.svg`.
+```bash
+npm run build
+```
 
-## Publish to GitHub
-
-Because the workflow publishes the prebuilt `dist` folder, build first and then push:
+## Publish to GitHub Pages
 
 ```bash
 npm install
 npm run build
 git add .
 git add -f dist
-git commit -m "Add decision support section"
+git commit -m "Improve portfolio design and content"
 git push
 ```
+
+The dashboard image files in `public/dashboards/` are used directly and were not edited.
